@@ -28,9 +28,9 @@ app.get('/api/products', (req, res, next) => {
   db.query(sql)
     .then(result => {
       const products = result.rows;
-      res.status(200).json({
+      res.status(200).json(
         products
-      });
+      );
     })
     .catch(err => next(err));
 });
