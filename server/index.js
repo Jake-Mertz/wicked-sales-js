@@ -36,29 +36,27 @@ app.get('/api/products', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// app.get('api/products', (req, res, next) => {
-//   const sql = `
-//   select *
-//   from "products"
-//   where "productId" = $4
-//   returning *
-//   `;
-//   if (!this.productId) {
-//     next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
-//   } else if (next(error)) {
-//     console.error(err);
-//     res.status(500).json({
-//       error: 'an unexpected error occurred'
-//     )}},
-//   db.query(sql)
-//     .then(result => {
-//       const products = result.rows;
-//       res.status(200).jsont(
-//         products
-//       );
-//     })
-//     .catch(err => next(err)),
-//   });
+app.get('/api/products/:productId', (req, res, next) => {
+  const sql = `
+  select *
+  from "products"
+  where "productId" = $1
+  `;
+  const productId = req.params.productId;
+  const params = [productId];
+  db.query(sql, params)
+    .then(result => {
+      const products = result.rows;
+      // console.log(params);
+      if (products.length === 0) {
+        return next(new ClientError('Product does not exist', 404));
+      }
+      res.status(200).json(
+        products
+      );
+    })
+    .catch(err => next(err));
+});
 
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
