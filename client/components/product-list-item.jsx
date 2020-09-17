@@ -1,7 +1,6 @@
 import React from 'react';
 
 function ProductListItem(props) {
-  // console.log(props);
   return (
     <div className="card" style={{ width: '18rem' }}>
       <img src={props.image} className="card-img-top" alt="sales product"></img>
