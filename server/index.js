@@ -49,7 +49,7 @@ app.get('/api/products/:productId', (req, res, next) => {
       const products = result.rows;
       // console.log(params);
       if (products.length === 0) {
-        next(new ClientError('Product does not exist', 404));
+        return next(new ClientError('Product does not exist', 404));
       }
       res.status(200).json(
         products
