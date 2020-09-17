@@ -30,8 +30,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <Header />,
-      <ProductList />
+      <div>
+        <Header />,
+        <ProductList />
+      </div>
     );
   }
 }

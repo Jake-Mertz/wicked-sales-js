@@ -5,6 +5,7 @@ const db = require('./database');
 const ClientError = require('./client-error');
 const staticMiddleware = require('./static-middleware');
 const sessionMiddleware = require('./session-middleware');
+// const { useDebugValue } = require('react');
 
 const app = express();
 
@@ -34,6 +35,30 @@ app.get('/api/products', (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
+// app.get('api/products', (req, res, next) => {
+//   const sql = `
+//   select *
+//   from "products"
+//   where "productId" = $4
+//   returning *
+//   `;
+//   if (!this.productId) {
+//     next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
+//   } else if (next(error)) {
+//     console.error(err);
+//     res.status(500).json({
+//       error: 'an unexpected error occurred'
+//     )}},
+//   db.query(sql)
+//     .then(result => {
+//       const products = result.rows;
+//       res.status(200).jsont(
+//         products
+//       );
+//     })
+//     .catch(err => next(err)),
+//   });
 
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
