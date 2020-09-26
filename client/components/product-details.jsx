@@ -9,7 +9,7 @@ class ProductDetails extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/products/:productId', { method: 'GET' })
+    fetch(`/api/products/${this.props.details.id}`, { method: 'GET' })
       .then(res => res.json())
       .then(data => this.setState({ product: data }))
       .catch(err => console.error('Product does not exist', err));
