@@ -7,9 +7,11 @@ class ProductDetails extends React.Component {
     this.state = {
       product: null,
       view: {
-        name: 'details'
+        name: 'details',
+        productId: this.product.productId
       }
     };
+    this.backToCatalog = this.backToCatalog.bind(this);
   }
 
   componentDidMount() {
@@ -19,12 +21,16 @@ class ProductDetails extends React.Component {
       .catch(err => console.error('Product does not exist', err));
   }
 
+  backToCatalog() {
+    this.setView('catalog', {});
+  }
+
   render() {
     if (this.state.view === 'details') {
       return (
         <div>
           <Header />
-          <button>Back to Catalog</button>
+          <button onClick={this.backToCatalog}>Back to Catalog</button>
           <img src={this.props.image} className="card-img-top" alt="sales product"></img>
           <h1>`${this.props.details.name}`</h1>
           <h3>`${this.props.details.price}`</h3>
