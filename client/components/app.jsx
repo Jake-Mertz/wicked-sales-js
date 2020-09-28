@@ -27,7 +27,9 @@ class App extends React.Component {
   render() {
     let appView = null;
     if (this.state.view.name === 'catalog') {
-      appView = <ProductList setView={this.setView} />;
+      appView = <ProductList
+        setView={this.setView}
+      />;
     } else if (this.state.view.name === 'details') {
       appView = <ProductDetails
         details={this.state.view.params}
@@ -36,7 +38,7 @@ class App extends React.Component {
     }
     return (
       <div>
-        <Header />,
+        <Header />
         {/* <ProductList view={this.setView()}/> */}
         {appView}
       </div>

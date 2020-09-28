@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './header';
+// import Header from './header';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class ProductDetails extends React.Component {
       product: null,
       view: {
         name: 'details',
-        productId: this.product.productId
+        productId: this.props.id
       }
     };
     this.backToCatalog = this.backToCatalog.bind(this);
@@ -26,15 +26,21 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    if (this.state.view === 'details') {
+    if (this.state.product === null) {
       return (
         <div>
-          <Header />
+          <h1>Product could not be found</h1>
           <button onClick={this.backToCatalog}>Back to Catalog</button>
-          <img src={this.props.image} className="card-img-top" alt="sales product"></img>
-          <h1>`${this.props.details.name}`</h1>
-          <h3>`${this.props.details.price}`</h3>
-          <p>`${this.props.details.longDescription}`</p>
+        </div>
+      );
+    } else if (this.state.product !== null) {
+      return (
+        <div>
+          <button onClick={this.backToCatalog}>Back to Catalog</button>
+          <img src={this.state.product.image} className="card-img-top" alt="sales product"></img>
+          <h1>{this.props.name}</h1>
+          <h3>{this.props.price}</h3>
+          <p>{this.props.details.longDescription}</p>
         </div>
       );
     }
