@@ -20,20 +20,31 @@ class ProductList extends React.Component {
   }
 
   render() {
-    return (
-      this.state.products.map(product => {
-        return (
-          <div className="col-sm" key={product.productId}>
-            <ProductListItem
-              name={product.name}
-              price={product.price}
-              image={product.image}
-              shortDescription={product.shortDescription}
-            />
-          </div>
-        );
-      })
-    );
+    // console.log(this.state);
+    // console.log(this.props);
+    if (this.state.products.length === 0) {
+      return (
+        <h1>No products are available!</h1>
+      );
+    } else {
+      return (
+        this.state.products.map(product => {
+          return (
+            <div className="col-sm" key={product.productId}>
+              <ProductListItem
+                name={product.name}
+                price={product.price}
+                image={product.image}
+                shortDescription={product.shortDescription}
+                setView={this.props.setView}
+                id={product.productId}
+                longDescription={product.longDescription}
+              />
+            </div>
+          );
+        })
+      );
+    }
   }
 }
 
