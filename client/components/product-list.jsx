@@ -31,6 +31,7 @@ class ProductList extends React.Component {
               shortDescription={product.shortDescription}
               setView={this.props.setView}
               id={product.productId}
+              longDescription={product.longDescription}
             />
           </div>
         );
