@@ -15,6 +15,7 @@ class App extends React.Component {
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   componentDidMount() {
@@ -32,22 +33,27 @@ class App extends React.Component {
 
   getCartItems() {
     fetch('/api/cart', { method: 'GET' })
-      .then(res => res.json)
+      .then(res => res.json())
       .then(data => this.setState({ cart: data }));
   }
 
   addToCart(product) {
-    // const productItem = { product: '' };
+    const newState = this.state.cart.slice();
+    // console.log(product);
+    // console.log(this.state.cart);
     fetch('/api/cart', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(product)
+      body: JSON.stringify({ productId: product })
     })
+    // console.log(res)
       .then(res => res.json())
-      .then(() => this.setState({ cart: product }));
+      .then(data => newState.push(data))
+      .then(() => this.setState({ cart: newState }));
   }
 
   render() {
+    // console.log(this.state.cart.length);
     let appView = null;
     if (this.state.view.name === 'catalog') {
       appView = <ProductList
