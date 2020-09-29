@@ -58,6 +58,28 @@ app.get('/api/products/:productId', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/cart', (req, res, next) => {
+  res.json('');
+});
+
+app.post('/api/cart', (req, res, next) => {
+  if (!req.body.productId) {
+    res.status(400).json({ error: 'Product could not be found' });
+  }
+  const priceSQL = `
+  select "price" from "products"
+  where "productId" = $1
+  `;
+  const priceParams = [req.body.productId];
+  db.query(priceSQL, priceParams)
+    .then(result => {
+      // console.log('price result', result);
+      res.send('testing');
+    })
+
+    .catch(err => next(err));
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
