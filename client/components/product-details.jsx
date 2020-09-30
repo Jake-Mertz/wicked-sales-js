@@ -6,8 +6,7 @@ class ProductDetails extends React.Component {
     this.state = {
       product: null,
       view: {
-        name: 'details',
-        productId: this.props.id
+        name: 'details'
       }
     };
     this.backToCatalog = this.backToCatalog.bind(this);
@@ -41,6 +40,8 @@ class ProductDetails extends React.Component {
           <img src={this.state.product[0].image} className="card-img-top" alt="sales product"></img>
           <h1>{this.state.product[0].name}</h1>
           <h3>{this.state.product[0].price}</h3>
+          <h4>{this.state.product[0].shortDescription}</h4>
+          <button onClick={() => this.props.addToCart(this.props.details.id)}>Add to Cart</button>
           <p>{this.state.product[0].longDescription}</p>
         </div>
       );
