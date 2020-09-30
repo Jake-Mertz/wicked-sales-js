@@ -147,6 +147,27 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.post('/api/orders', (req, res, next) => {
+  if (!req.session.cartId) {
+    res.status(400).json({ error: 'You have no cart' });
+  }
+  if (!req.body.name || !req.body.creditCard || !req.body.shippingAddress) {
+    res.status(400).json({ error: 'Your credentials are incomplete' });
+  }
+  const sql = `
+  insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
+  values ($1, $2, $3, $4)
+  returning "orderId", "createdAt", "name", "creditCard", "shippingAddress"
+  `;
+  const orderDetails = [req.session.cartId, req.session.name, req.session.creditCard, req.session.shippingAddress];
+  db.query(sql, orderDetails)
+    .then(result => {
+      // console.log(result);
+      res.status(201).json(result.rows[0]);
+    })
+    .catch(err => next(err));
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
