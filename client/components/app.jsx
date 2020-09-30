@@ -36,6 +36,7 @@ class App extends React.Component {
     fetch('/api/cart', { method: 'GET' })
       .then(res => res.json())
       .then(data => this.setState({ cart: data }));
+    // console.log(this.state.cart);
   }
 
   addToCart(product) {
@@ -54,6 +55,7 @@ class App extends React.Component {
   }
 
   render() {
+    // console.log(this.state.cart);
     // console.log(this.state.cart.length);
     let appView = null;
     if (this.state.view.name === 'catalog') {
@@ -68,7 +70,7 @@ class App extends React.Component {
       />;
     } else if (this.state.view.name === 'cart') {
       appView = <CartSummary
-        cartData={[this.state.cart]}
+        cartData={this.state.cart}
         setView={this.setView}
       />;
     }
