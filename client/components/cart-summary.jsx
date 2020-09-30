@@ -4,6 +4,7 @@ import CartSummaryItem from './cart-summary-item';
 function CartSummary(props) {
   // console.log(props.cartData);
   const cartItems = props.cartData.map((item, index) => {
+    // console.log(item);
     return (
       <CartSummaryItem
         key={item.productId + index}
@@ -20,6 +21,8 @@ function CartSummary(props) {
   const backToCatalog = () => {
     props.setView('catalog', {});
   };
+  // console.log(<CartSummaryItem />);
+  // console.log(cartItems);
   if (props.cartData.length === 0) {
     return (
       <h1>Your cart is empty!</h1>

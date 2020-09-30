@@ -77,7 +77,7 @@ app.get('/api/cart', (req, res, next) => {
   const cartId = [req.session.cartId];
   db.query(cartItemSQL, cartId)
     .then(result => {
-      res.status(200).json(result.rows[0]);
+      res.status(200).json(result.rows);
     });
 });
 
@@ -159,11 +159,11 @@ app.post('/api/orders', (req, res, next) => {
   values ($1, $2, $3, $4)
   returning "orderId", "createdAt", "name", "creditCard", "shippingAddress"
   `;
-  const orderDetails = [req.session.cartId, req.session.name, req.session.creditCard, req.session.shippingAddress];
+  const orderDetails = [req.body.cartId, req.body.name, req.body.creditCard, req.body.shippingAddress];
   db.query(sql, orderDetails)
     .then(result => {
-      // console.log(result);
-      res.status(201).json(result.rows[0]);
+      delete req.session.cartId;
+      res.status(201).json(result.rows);
     })
     .catch(err => next(err));
 });

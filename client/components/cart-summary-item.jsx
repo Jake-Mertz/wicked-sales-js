@@ -1,6 +1,7 @@
 import React from 'react';
 
 function CartSummaryItem(props) {
+  // console.log(props);
   return (
     <div>
       <img src={props.image} className="card-img-top" alt="sales product"></img>
