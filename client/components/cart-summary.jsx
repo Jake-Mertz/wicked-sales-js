@@ -4,7 +4,6 @@ import CartSummaryItem from './cart-summary-item';
 function CartSummary(props) {
   // console.log(props.cartData);
   const cartItems = props.cartData.map((item, index) => {
-    // console.log(item);
     return (
       <CartSummaryItem
         key={item.productId + index}
@@ -21,8 +20,11 @@ function CartSummary(props) {
   const backToCatalog = () => {
     props.setView('catalog', {});
   };
-  // console.log(<CartSummaryItem />);
-  // console.log(cartItems);
+  const checkout = () => {
+    if (props.cartData.length > 0) {
+      props.setView('checkout', {});
+    }
+  };
   if (props.cartData.length === 0) {
     return (
       <h1>Your cart is empty!</h1>
@@ -34,6 +36,7 @@ function CartSummary(props) {
       <h1>My Cart</h1>
       {cartItems}
       <h3>Item Total {priceTotal}</h3>
+      <button onClick={checkout}>Checkout</button>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
+import CheckoutForm from './checkout-form';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
   }
 
   componentDidMount() {
@@ -33,9 +35,10 @@ class App extends React.Component {
   }
 
   getCartItems() {
-    fetch('/api/cart', { method: 'GET' })
+    fetch('/api/cart')
       .then(res => res.json())
-      .then(data => this.setState({ cart: data }));
+      .then(data => this.setState({ cart: data }))
+      .catch(err => console.error(err));
     // console.log(this.state.cart);
   }
 
@@ -51,7 +54,30 @@ class App extends React.Component {
     // console.log(res)
       .then(res => res.json())
       .then(data => newState.push(data))
-      .then(() => this.setState({ cart: newState }));
+      .then(() => this.setState({ cart: newState }))
+      .catch(err => console.error(err));
+  }
+
+  placeOrder(name, creditCard, shippingAddress) {
+    // event.preventDefault();
+    const checkoutValues = {
+      name: name,
+      creditCard: creditCard,
+      shippingAddress: shippingAddress
+    };
+    fetch('/api/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(checkoutValues)
+    })
+      .then(res => res.json())
+      .then(() => {
+        this.setState({
+          cart: [],
+          view: { name: 'catalog', params: {} }
+        });
+      })
+      .catch(err => console.error(err));
   }
 
   render() {
@@ -73,6 +99,12 @@ class App extends React.Component {
         cartData={this.state.cart}
         setView={this.setView}
       />;
+    } else if (this.state.view.name === 'checkout') {
+      appView = <CheckoutForm
+        placeOrder={this.placeOrder}
+        cartData={this.state.cart}
+        setView={this.setView}
+      />;
     }
     return (
       <div>
@@ -80,7 +112,6 @@ class App extends React.Component {
           cartItemCount={this.state.cart.length}
           setView={this.setView}
         />
-        {/* <ProductList view={this.setView()}/> */}
         {appView}
       </div>
     );
