@@ -34,34 +34,38 @@ class CheckoutForm extends React.Component {
     }, 0);
     const backToCatalog = () => { this.props.setView('catalog'); };
     return (
-      <div>
-        <h1>Checkout</h1>
-        <h3>Order Total: {priceTotal}</h3>
-        <form onSubmit={this.handleSubmit}>
-          <label>Name
+      <div className="checkout-page">
+        <h1 className="checkout-form-header">Checkout</h1>
+        <h3 className="checkout-form-order-total">Order Total: ${priceTotal}</h3>
+        <form onSubmit={this.handleSubmit} className="checkout-form">
+          <label className="d-block checkout-form-label">Name
             <input
+              className="d-block checkout-form-input"
               type="text"
               name="name"
               value={this.state.name}
               onChange={this.handleChange}></input>
           </label>
-          <label>Credit Card
+          <label className="d-block checkout-form-label">Credit Card
             <input
+              className="d-block checkout-form-input"
               type="text"
               name="creditCard"
               value={this.state.creditCard}
               onChange={this.handleChange}></input>
           </label>
-          <label>Shipping Address
+          <label className="d-block checkout-form-label">Shipping Address
             <textarea
+              className="d-block checkout-form-input"
               name="shippingAddress"
-              rows="7"
+              rows="5"
               value={this.state.shippingAddress}
               onChange={this.handleChange}></textarea>
           </label>
-          <button type="submit">Place Order</button>
+          <button onClick={backToCatalog} className="checkout-return-to-catalog">Continue Shopping</button>
+          <button type="submit" className="checkout-form-submit">Place Order</button>
         </form>
-        <button onClick={backToCatalog}>Continue Shopping</button>
+        {/* <button onClick={backToCatalog}>Continue Shopping</button> */}
       </div>
     );
   }

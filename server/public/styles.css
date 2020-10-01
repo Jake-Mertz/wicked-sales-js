@@ -4,12 +4,173 @@
   margin-left: 10px;
 }
 
+.header-title:hover {
+  cursor: pointer;
+}
+
 .header-cart-text {
-  margin-left: 50%;
+  margin-left: 20%;
   margin-top: 5px;
 }
 
 .header-cart-icon {
   margin-left: 1.5%;
   margin-top: 12.5px;
+}
+
+.header-cart-icon:hover {
+  cursor: pointer;
+}
+
+.list-product:hover {
+  cursor: pointer;
+}
+
+.product-details-image {
+  width: 50vw;
+}
+
+.back-to-catalog {
+  display: block;
+}
+
+.checkout-page {
+  max-width: 1250px;
+  width: 100%;
+}
+
+.checkout-form-header {
+  margin-top: 5%;
+  margin-left: 10%;
+  font-size: 50px;
+}
+
+.checkout-form-order-total {
+  margin-top: 1%;
+  margin-left: 10%;
+}
+
+.checkout-form {
+  width: 100%;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+.checkout-form-label {
+  margin-left: 10%;
+  width: 75%;
+}
+
+.checkout-form-input {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+}
+
+.checkout-return-to-catalog {
+  margin-left: 10%;
+  padding: 6px 12px;
+}
+
+.checkout-form-submit {
+  margin-top: 7%;
+  margin-left: 2%;
+  padding: 6px 12px;
+}
+
+
+
+@media only screen and (min-width: 400px) {
+  .checkout-form-submit {
+    margin-left: 8%;
+  }
+  .header-cart-text {
+    margin-left: 25%;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .checkout-form-submit {
+    margin-left: 18%;
+  }
+  .header-cart-text {
+    margin-left: 34%;
+  }
+}
+
+@media only screen and (min-width: 510px) {
+  .checkout-form-submit {
+    margin-left: 22%;
+  }
+   .header-cart-text {
+    margin-left: 40%;
+  }
+}
+
+@media only screen and (min-width: 540px) {
+  .checkout-form-submit {
+    margin-left: 25%;
+  }
+   .header-cart-text {
+    margin-left: 44%;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .checkout-form-submit {
+    margin-left: 28%;
+  }
+   .header-cart-text {
+    margin-left: 46%;
+  }
+}
+
+@media only screen and (min-width: 675px) {
+  .checkout-form-submit {
+    margin-left: 34%;
+  }
+  .header-cart-text {
+    margin-left: 54%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .checkout-form-submit {
+    margin-left: 39%;
+  }
+  .header-cart-text {
+    margin-left: 60%;
+  }
+}
+
+@media only screen and (min-width: 920px) {
+  .checkout-form-submit {
+    margin-left: 45%;
+  }
+  .header-cart-text {
+    margin-left: 66%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .checkout-form-submit {
+    margin-left: 47%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .checkout-form-submit {
+    margin-left: 48%;
+  }
+  .header-cart-text {
+    margin-left: 69%;
+  }
+}
+
+@media only screen and (min-width: 1250px) {
+  .checkout-form-submit {
+    margin-left: 53%;
+  }
 }
