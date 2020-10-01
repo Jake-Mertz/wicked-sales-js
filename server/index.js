@@ -61,7 +61,7 @@ app.get('/api/products/:productId', (req, res, next) => {
 
 app.get('/api/cart', (req, res, next) => {
   if (!req.session.cartId) {
-    res.send([]);
+    return res.json([]);
   }
   const cartItemSQL = `
     select "c"."cartItemId",
@@ -78,7 +78,8 @@ app.get('/api/cart', (req, res, next) => {
   db.query(cartItemSQL, cartId)
     .then(result => {
       res.status(200).json(result.rows);
-    });
+    })
+    .catch(err => next(err));
 });
 
 app.post('/api/cart', (req, res, next) => {
@@ -159,7 +160,7 @@ app.post('/api/orders', (req, res, next) => {
   values ($1, $2, $3, $4)
   returning "orderId", "createdAt", "name", "creditCard", "shippingAddress"
   `;
-  const orderDetails = [req.body.cartId, req.body.name, req.body.creditCard, req.body.shippingAddress];
+  const orderDetails = [req.session.cartId, req.body.name, req.body.creditCard, req.body.shippingAddress];
   db.query(sql, orderDetails)
     .then(result => {
       delete req.session.cartId;
