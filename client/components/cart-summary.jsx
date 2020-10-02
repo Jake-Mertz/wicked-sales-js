@@ -2,7 +2,6 @@ import React from 'react';
 import CartSummaryItem from './cart-summary-item';
 
 function CartSummary(props) {
-  // console.log(props.cartData);
   const cartItems = props.cartData.map((item, index) => {
     return (
       <CartSummaryItem
@@ -11,6 +10,7 @@ function CartSummary(props) {
         name={item.name}
         price={item.price}
         shortDescription={item.shortDescription}
+        setView={props.setView}
       />
     );
   });
@@ -27,16 +27,18 @@ function CartSummary(props) {
   };
   if (props.cartData.length === 0) {
     return (
-      <h1>Your cart is empty!</h1>
+      <h1 className="cart-empty-text">Your cart is empty!</h1>
     );
   }
   return (
     <div>
-      <button onClick={backToCatalog}>Back to Catalog</button>
-      <h1>My Cart</h1>
+      <button onClick={backToCatalog} className="p-back-button">Back to Catalog</button>
+      <h1 className="cart-header">My Cart</h1>
       {cartItems}
-      <h3>Item Total {priceTotal}</h3>
-      <button onClick={checkout}>Checkout</button>
+      <div className="cart-footer">
+        <h3 className="cart-total">Item Total ${priceTotal}</h3>
+        <button className="cart-checkout-button" onClick={checkout}>Checkout</button>
+      </div>
     </div>
   );
 }
