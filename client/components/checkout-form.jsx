@@ -35,6 +35,7 @@ class CheckoutForm extends React.Component {
     const backToCatalog = () => { this.props.setView('catalog'); };
     return (
       <div className="checkout-page">
+        <div className="checkout-reminder">Please do not enter any personal information into this form.</div>
         <h1 className="checkout-form-header">Checkout</h1>
         <h3 className="checkout-form-order-total">Order Total: ${priceTotal}</h3>
         <form onSubmit={this.handleSubmit} className="checkout-form">

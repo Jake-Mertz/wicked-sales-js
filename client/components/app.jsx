@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       view: {
-        name: 'catalog',
+        name: 'cart',
         params: {}
       },
       cart: []
@@ -107,7 +107,7 @@ class App extends React.Component {
       />;
     }
     return (
-      <div>
+      <div className="the-biggest-div">
         <Header
           cartItemCount={this.state.cart.length}
           setView={this.setView}

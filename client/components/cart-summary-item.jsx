@@ -14,8 +14,8 @@ function CartSummaryItem(props) {
         <div className="col-md-5">
           <div className="card-body">
             <h1 className="card-title cart-item-title">{props.name}</h1>
-            <h2>${props.price}</h2>
-            <p>{props.shortDescription}</p>
+            <h2 className="cart-item-price">${props.price}</h2>
+            <p className="cart-item-description">{props.shortDescription}</p>
           </div>
         </div>
       </div>

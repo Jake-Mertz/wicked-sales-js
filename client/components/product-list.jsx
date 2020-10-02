@@ -19,6 +19,10 @@ class ProductList extends React.Component {
       .then(data => this.setState({ products: data }));
   }
 
+  hideModal() {
+    return null;
+  }
+
   render() {
     const productListRender = this.state.products.map(product => {
       return (
@@ -58,7 +62,14 @@ class ProductList extends React.Component {
         //     </div>
         //   );
         // })
-        <div className="product-list">{productListRender}</div>
+        <div>
+          <div className="demo-site-modal hidden">This site is for demonstration purposes only. No real purchases can be made.
+            <button onClick={this.hideModal} className="demo-site-modal-button">Got it!</button>
+          </div>
+          <div className="row justify-content-start">
+            <div className="product-list col-md">{productListRender}</div>
+          </div>
+        </div>
       );
     }
   }
