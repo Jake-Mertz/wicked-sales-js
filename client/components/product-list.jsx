@@ -26,7 +26,7 @@ class ProductList extends React.Component {
   render() {
     const productListRender = this.state.products.map(product => {
       return (
-        <div className="col-sm" key={product.productId}>
+        <div key={product.productId}>
           <ProductListItem
             name={product.name}
             price={product.price}
@@ -39,35 +39,18 @@ class ProductList extends React.Component {
         </div>
       );
     });
-    // console.log(this.state);
-    // console.log(this.props);
     if (this.state.products.length === 0) {
       return (
         <h1>No products are available!</h1>
       );
     } else {
       return (
-        // this.state.products.map(product => {
-        //   return (
-        //     <div className="col-sm" key={product.productId}>
-        //       <ProductListItem
-        //         name={product.name}
-        //         price={product.price}
-        //         image={product.image}
-        //         shortDescription={product.shortDescription}
-        //         setView={this.props.setView}
-        //         id={product.productId}
-        //         longDescription={product.longDescription}
-        //       />
-        //     </div>
-        //   );
-        // })
         <div>
           <div className="demo-site-modal hidden">This site is for demonstration purposes only. No real purchases can be made.
             <button onClick={this.hideModal} className="demo-site-modal-button">Got it!</button>
           </div>
-          <div className="row justify-content-start">
-            <div className="product-list col-md">{productListRender}</div>
+          <div className="row row-cols-3">
+            <div className="col product-list">{productListRender}</div>
           </div>
         </div>
       );
