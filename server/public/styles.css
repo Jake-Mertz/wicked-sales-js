@@ -108,6 +108,10 @@
   background-color: rgb(231, 241, 255);
 }
 
+.no-product-available {
+  color: white;
+}
+
 .cart-empty-text {
   color: white;
   margin-left: 4%;

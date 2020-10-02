@@ -43,7 +43,7 @@ class ProductList extends React.Component {
     });
     if (this.state.products.length === 0) {
       return (
-        <h1>No products are available!</h1>
+        <h1 className="no-product-available">No products are available!</h1>
       );
     } else {
       return (
