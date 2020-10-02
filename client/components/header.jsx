@@ -11,7 +11,7 @@ function Header(props) {
   const backToCatalog = () => props.setView('catalog');
   const goToCart = () => props.setView('cart', {});
   return (
-    <div className="d-flex bg-dark text-white">
+    <div className="d-flex bg-dark text-white header-div">
       <i className="fas fa-dollar-sign fa-lg icon"></i>
       <h3 onClick={backToCatalog} className="header-title">Wicked Sales</h3>
       <h4 className="header-cart-text">{props.cartItemCount}{item()}</h4>
