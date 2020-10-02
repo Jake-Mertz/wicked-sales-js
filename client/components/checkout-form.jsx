@@ -17,15 +17,9 @@ class CheckoutForm extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleSubmit() {
-    // console.log(this.state.name, this.state.creditCard, this.state.shippingAddress);
+  handleSubmit(event) {
     event.preventDefault();
     this.props.placeOrder(this.state.name, this.state.creditCard, this.state.shippingAddress);
-    this.setState({
-      name: '',
-      creditCard: '',
-      shippingAddress: ''
-    });
   }
 
   render() {
@@ -66,7 +60,6 @@ class CheckoutForm extends React.Component {
           <button onClick={backToCatalog} className="checkout-return-to-catalog">Continue Shopping</button>
           <button type="submit" className="checkout-form-submit">Place Order</button>
         </form>
-        {/* <button onClick={backToCatalog}>Continue Shopping</button> */}
       </div>
     );
   }

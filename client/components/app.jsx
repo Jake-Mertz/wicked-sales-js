@@ -39,19 +39,15 @@ class App extends React.Component {
       .then(res => res.json())
       .then(data => this.setState({ cart: data }))
       .catch(err => console.error(err));
-    // console.log(this.state.cart);
   }
 
   addToCart(product) {
     const newState = this.state.cart.slice();
-    // console.log(product);
-    // console.log(this.state.cart);
     fetch('/api/cart', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ productId: product })
     })
-    // console.log(res)
       .then(res => res.json())
       .then(data => newState.push(data))
       .then(() => this.setState({ cart: newState }))
@@ -59,7 +55,6 @@ class App extends React.Component {
   }
 
   placeOrder(name, creditCard, shippingAddress) {
-    // event.preventDefault();
     const checkoutValues = {
       name: name,
       creditCard: creditCard,
@@ -70,7 +65,12 @@ class App extends React.Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(checkoutValues)
     })
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Please fill out all of the credentials!');
+        }
+        return res.json();
+      })
       .then(() => {
         this.setState({
           cart: [],
@@ -81,8 +81,6 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log(this.state.cart);
-    // console.log(this.state.cart.length);
     let appView = null;
     if (this.state.view.name === 'catalog') {
       appView = <ProductList

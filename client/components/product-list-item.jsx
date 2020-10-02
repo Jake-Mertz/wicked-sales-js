@@ -12,7 +12,6 @@ function ProductListItem(props) {
         <h5 className="card-title">{props.name}</h5>
         <p>{props.price}</p>
         <p className="card-text">{props.shortDescription}</p>
-        {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
       </div>
     </div>
   );

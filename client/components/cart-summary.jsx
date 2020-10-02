@@ -2,7 +2,6 @@ import React from 'react';
 import CartSummaryItem from './cart-summary-item';
 
 function CartSummary(props) {
-  // console.log(props.cartData);
   const cartItems = props.cartData.map((item, index) => {
     return (
       <CartSummaryItem
@@ -28,7 +27,7 @@ function CartSummary(props) {
   };
   if (props.cartData.length === 0) {
     return (
-      <h1>Your cart is empty!</h1>
+      <h1 className="cart-empty-text">Your cart is empty!</h1>
     );
   }
   return (

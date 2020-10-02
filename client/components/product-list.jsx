@@ -5,8 +5,10 @@ class ProductList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: [],
+      showModal: true
     };
+    this.hideModal = this.hideModal.bind(this);
   }
 
   componentDidMount() {
@@ -20,7 +22,7 @@ class ProductList extends React.Component {
   }
 
   hideModal() {
-    return null;
+    this.setState({ showModal: false });
   }
 
   render() {
@@ -46,8 +48,12 @@ class ProductList extends React.Component {
     } else {
       return (
         <div>
-          <div className="demo-site-modal hidden">This site is for demonstration purposes only. No real purchases can be made.
-            <button onClick={this.hideModal} className="demo-site-modal-button">Got it!</button>
+          <div className={'modal' + (this.state.showModal ? ' show' : '')}>
+            <div className="demo-site-modal">
+              <div>This site is for demonstration purposes only. No real purchases can be made.
+                <button onClick={this.hideModal} className="demo-site-modal-button">Got it!</button>
+              </div>
+            </div>
           </div>
           <div className="row row-cols-3">
             <div className="col product-list">{productListRender}</div>

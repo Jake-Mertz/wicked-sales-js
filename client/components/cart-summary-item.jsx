@@ -1,11 +1,9 @@
 import React from 'react';
 
 function CartSummaryItem(props) {
-  // console.log(props);
   return (
     <div
       className="card col-sm-8 cart-item"
-      // onClick={() => props.setView('details', { id: props.id })}
     >
       <div className="row no-gutters">
         <div className="col-md-4">
