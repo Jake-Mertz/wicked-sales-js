@@ -45,22 +45,23 @@ class ProductList extends React.Component {
       return (
         <h1 className="no-product-available">No products are available!</h1>
       );
-    } else {
-      return (
-        <div>
-          <div className={'modal' + (this.state.showModal ? ' show' : '')}>
-            <div className="demo-site-modal">
-              <div>This site is for demonstration purposes only. No real purchases can be made.
-                <button onClick={this.hideModal} className="demo-site-modal-button">Got it!</button>
-              </div>
+    }
+    // else {
+    return (
+      <div>
+        <div className={'modal' + (this.state.showModal ? ' show' : '')}>
+          <div className="demo-site-modal">
+            <div>This site is for demonstration purposes only. No real purchases can be made.
+              <button onClick={this.hideModal} className="demo-site-modal-button">Got it!</button>
             </div>
           </div>
-          <div className="row row-cols-3">
-            <div className="col product-list">{productListRender}</div>
-          </div>
         </div>
-      );
-    }
+        <div className="row row-cols-3">
+          <div className="col product-list">{productListRender}</div>
+        </div>
+      </div>
+    );
+    // }
   }
 }
 
