@@ -248,14 +248,14 @@
   text-align: center;
 }
 
-@media only screen and (min-width: 685px) {
+/* @media only screen and (min-width: 685px) {
   .checkout-reminder {
     width: 42rem;
     font-size: 24px;
   }
-}
+} */
 
-@media only screen and (min-width: 575px) {
+@media only screen and (max-width: 685px) {
   .checkout-reminder {
     width: 35rem;
     font-size: 20px;
@@ -265,9 +265,9 @@
 
 @media only screen and (max-width: 575px) {
   .checkout-reminder {
-    width: 35rem;
-    height: 7rem;
-    font-size: 20px;
+    width: 20rem;
+    height: 8rem;
+    font-size: 23px;
     padding-top: 1%;
   }
 }
