@@ -5,10 +5,8 @@ class ProductList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: [],
-      showModal: true
+      products: []
     };
-    this.hideModal = this.hideModal.bind(this);
   }
 
   componentDidMount() {
@@ -19,10 +17,6 @@ class ProductList extends React.Component {
     fetch('api/products', { method: 'GET' })
       .then(res => res.json())
       .then(data => this.setState({ products: data }));
-  }
-
-  hideModal() {
-    this.setState({ showModal: false });
   }
 
   render() {
@@ -46,22 +40,13 @@ class ProductList extends React.Component {
         <h1 className="no-product-available">No products are available!</h1>
       );
     }
-    // else {
     return (
       <div>
-        <div className={'modal' + (this.state.showModal ? ' show' : '')}>
-          <div className="demo-site-modal">
-            <div>This site is for demonstration purposes only. No real purchases can be made.
-              <button onClick={this.hideModal} className="demo-site-modal-button">Got it!</button>
-            </div>
-          </div>
-        </div>
         <div className="row row-cols-3">
           <div className="col product-list">{productListRender}</div>
         </div>
       </div>
     );
-    // }
   }
 }
 
