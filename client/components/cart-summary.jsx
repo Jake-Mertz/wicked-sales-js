@@ -5,7 +5,7 @@ function CartSummary(props) {
   const cartItems = props.cartData.map((item, index) => {
     return (
       <CartSummaryItem
-        key={item.productId + index}
+        key={item.productId + (index * 1000)}
         image={item.image}
         name={item.name}
         price={item.price}
