@@ -134,6 +134,10 @@
   border-radius: 3px;
 }
 
+.p-details-add-button:active {
+  transform: translate(0px, 1px);
+}
+
 .p-back-button {
   margin-top: 1%;
   margin-bottom: 1%;
