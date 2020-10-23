@@ -36,15 +36,15 @@ Try the application live at https://guitarshop.jakemertz.com/
 
 1. Clone the repository
 
-  https://github.com/Jake-Mertz/wicked-sales-js
+    https://github.com/Jake-Mertz/wicked-sales-js
 
 2. Install the dependencies.
 
-  npm install
+    npm install
 
 3. Start the server
 
-  npm run dev
+    npm run dev
 
 4. Visit localhost:3000 in your web browser
 
