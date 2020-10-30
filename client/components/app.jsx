@@ -23,6 +23,7 @@ class App extends React.Component {
   }
 
   // github test string
+  // github test string 2
 
   componentDidMount() {
     this.getCartItems();
