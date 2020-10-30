@@ -22,6 +22,8 @@ class App extends React.Component {
     this.placeOrder = this.placeOrder.bind(this);
   }
 
+  // github test string
+
   componentDidMount() {
     this.getCartItems();
   }
