@@ -292,6 +292,114 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 61	29	1	1700
 62	29	6	1700
 63	30	6	1700
+64	31	1	1700
+65	32	3	1200
+66	33	1	1700
+67	34	3	1200
+68	35	2	1900
+69	36	2	1900
+70	37	3	1200
+71	37	2	1900
+72	37	1	1700
+73	37	2	1900
+74	38	2	1900
+75	38	1	1700
+76	38	3	1200
+77	38	4	2500
+78	38	5	1700
+79	38	6	1700
+80	38	6	1700
+81	38	6	1700
+82	38	6	1700
+83	38	6	1700
+84	38	6	1700
+85	38	6	1700
+86	38	6	1700
+87	38	6	1700
+88	38	6	1700
+89	38	1	1700
+90	38	1	1700
+91	38	1	1700
+92	38	1	1700
+93	38	1	1700
+94	38	1	1700
+95	38	1	1700
+96	38	1	1700
+97	38	1	1700
+98	38	1	1700
+99	38	3	1200
+100	38	3	1200
+101	38	3	1200
+102	38	3	1200
+103	38	3	1200
+104	38	3	1200
+105	38	5	1700
+106	38	5	1700
+107	38	5	1700
+108	38	5	1700
+109	38	5	1700
+110	38	5	1700
+111	39	1	1700
+112	39	2	1900
+113	39	2	1900
+114	39	2	1900
+115	39	2	1900
+116	39	2	1900
+117	39	1	1700
+118	39	1	1700
+119	39	2	1900
+120	39	2	1900
+121	39	2	1900
+122	39	2	1900
+123	39	2	1900
+124	39	2	1900
+125	39	2	1900
+126	39	2	1900
+127	39	2	1900
+128	39	2	1900
+129	39	2	1900
+130	39	2	1900
+131	39	2	1900
+132	39	2	1900
+133	39	2	1900
+134	39	2	1900
+135	39	2	1900
+136	39	1	1700
+137	39	1	1700
+138	39	1	1700
+139	39	1	1700
+140	39	1	1700
+141	39	1	1700
+142	39	1	1700
+143	39	1	1700
+144	39	1	1700
+145	39	1	1700
+146	39	1	1700
+147	39	1	1700
+148	39	1	1700
+149	39	1	1700
+150	39	1	1700
+151	39	2	1900
+152	39	2	1900
+153	39	2	1900
+154	39	2	1900
+155	39	2	1900
+156	39	1	1700
+157	39	1	1700
+158	39	2	1900
+159	39	2	1900
+160	39	2	1900
+161	39	2	1900
+162	39	2	1900
+163	39	2	1900
+164	39	2	1900
+165	39	2	1900
+166	39	2	1900
+167	39	2	1900
+168	39	2	1900
+169	39	2	1900
+170	39	1	1700
+171	39	1	1700
 \.
 
 
@@ -330,6 +438,15 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 28	2020-10-02 17:06:36.509033-04
 29	2020-10-07 14:29:23.833-04
 30	2020-10-07 14:29:56.466455-04
+31	2020-10-12 15:09:21.339882-04
+32	2020-10-12 15:14:59.642029-04
+33	2020-10-21 17:31:39.541231-04
+34	2020-10-22 12:36:47.455544-04
+35	2020-10-22 12:44:20.999792-04
+36	2020-10-22 12:45:46.033957-04
+37	2020-10-22 12:50:18.19684-04
+38	2020-10-22 13:12:07.526653-04
+39	2020-10-22 13:23:41.675699-04
 \.
 
 
@@ -397,6 +514,15 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 111	27				2020-10-02 17:04:46.6708-04
 112	27	Jake	gfdfg	dfgfdfg	2020-10-02 17:05:14.38658-04
 113	29	Jake	gfdfg	dfg	2020-10-07 14:29:52.398549-04
+114	31	Jake	gfdfg	ghj	2020-10-12 15:09:39.374305-04
+115	32	Jake	gfdfg	ftyujkl	2020-10-12 15:15:15.3508-04
+116	33	Jake	345	juk	2020-10-21 17:32:11.258521-04
+117	34	Jake	gfdfg	hjk	2020-10-22 12:37:00.881276-04
+118	35	ghj	hjk	hjkl	2020-10-22 12:44:33.351599-04
+119	36	Jake	gfdfg	hjk	2020-10-22 12:46:00.35797-04
+120	37	Jake	gfdfg	sdfghjk	2020-10-22 13:11:59.333866-04
+121	38	Jake	ghj	ghjm	2020-10-22 13:13:08.662275-04
+122	39	Jake	gfdfg	hjk	2020-10-22 13:33:28.791548-04
 \.
 
 
@@ -409,8 +535,8 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 2	Fender Telecaster	1900	/images2/fender-telly.jpg	Leo Fender's 1952 Telecaster legitimized the electric guitar as a mainstream instrument.	The American Ultra Telecaster features a unique 'Modern D' neck profile with rolled fingerboard edges for hours of playing comfort, and the tapered neck heel allows easy access to the highest register. A speedy 10-14 compound-radius fingerboard with 22 medium-jumbo frets means effortless and accurate soloing, while the Ultra Noiseless pickups and advanced wiring options provide endless tonal possibilities, without hum. This versatile, state-of-the-art instrument will inspire you to push your playing to new heights.
 3	ESP LTD Sparrowhawk Military Green Sunburst	1200	/images2/ESP-LTD-sparrowhawk.png	Bill Kelliher of the widely-respected American rock band Mastodon joined the ESP artist family in 2016.	For 2017, ESP is proud to debut the LTD Bill Kelliher Sparrowhawk, which offers set-thru construction at 24.75” scale, with mahogany body, 3-piece mahogany neck, ebony fingerboard, a TonePros locking TOM bridge and tailpiece, and Kelliher’s Lace Sensor Divinator signature pickups. The Sparrowhawk is being offered in Military Green Sunburst Satin finish. Includes hardshell case.
 4	Gibson Les Paul	2500	/images2/gibson-les-paul.jpg	From its carved maple top to its stockpile of premium features, the Gibson Les Paul Standard ’60s is ready to rock. Burstbucker pickups and handwired electronics deliver a massive tone arsenal.	When it comes to capturing vintage Patent Applied For (PAF) humbucker tone, nothing beats the sound of this Les Paul Standard’s Burstbucker 61 pickups. This humbucker pays tribute to 1961, which happens to be the year Gibson started using Alnico V magnets, providing these pickups with greater touch sensitivity and high-frequency output. These magnets — along with period-correct unmatched windings on the bobbins — capture the subtle historical variations in true humbucker tone. Plug into your favorite amp, and experience smooth low-end response, complex midrange crunch, and sweet-sounding highs. These pickups sound great clean or they can be used to push your amp into overdrive for the legendary fat, snarling tone you can only get with a humbucker. Under the hood, the control assembly is handwired with matched potentiometers and Orange Drop capacitors, ensuring that you’ll hear the mellifluous voice of your Les Paul Standard ’60s in all its glory, even when you back down your volume.
-5	Gibson Explorer	1700	/images2/gibson-explorer.png	The modern Gibson Explorer embodies all the trail-blazing style of the 1958 original, from its eye-catching angular body and hockey stick headstock to its red-hot rock appeal.	Gibson built the Explorer with a solid mahogany body and rosewood-topped set mahogany neck, so you know you’re in for rich tones, great sustain, and outstanding midrange character every time you plug in. The Gibson Explorer has been embraced by hard rockers the world over (and quite a few here at Sweetwater) for decades; its set-neck construction and fast-playing SlimTaper neck profile combine to give you an unbeatable sonic weapon onstage or in the studio. From the tonewoods to the rock-solid set neck to the top-shelf hardware, the Gibson Explorer was made to rock.
 6	Rickenbacker 620 Deluxe	1700	/images2/rickenbacker-620-fireglo.png	The Rickenbacker 620 electric guitar offers you the unmistakable jangle of a great Ricky with the performance of a great solidbody.	The 620 was first released in the 1950s to offer budding rock 'n' rollers a great instrument to play. It has since been seen in the hands of such guitar luminaries as Mike Campbell of Tom Petty and the Heartbreakers. The 620's all-maple construction and Hi-gain single-coil pickups deliver the legendary tone that goes hand in hand with the Rickenbacker name. And the 620 even boasts the famed Rick-O-Sound stereo output for expanded sonic possibilities.
+5	Gibson Explorer	1700	/images2/white-explorer.png	The modern Gibson Explorer embodies all the trail-blazing style of the 1958 original, from its eye-catching angular body and hockey stick headstock to its red-hot rock appeal.	Gibson built the Explorer with a solid mahogany body and rosewood-topped set mahogany neck, so you know you’re in for rich tones, great sustain, and outstanding midrange character every time you plug in. The Gibson Explorer has been embraced by hard rockers the world over (and quite a few here at Sweetwater) for decades; its set-neck construction and fast-playing SlimTaper neck profile combine to give you an unbeatable sonic weapon onstage or in the studio. From the tonewoods to the rock-solid set neck to the top-shelf hardware, the Gibson Explorer was made to rock.
 \.
 
 
@@ -418,21 +544,21 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 63, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 171, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 30, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 39, true);
 
 
 --
 -- Name: orders_orderId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."orders_orderId_seq"', 113, true);
+SELECT pg_catalog.setval('public."orders_orderId_seq"', 122, true);
 
 
 --
