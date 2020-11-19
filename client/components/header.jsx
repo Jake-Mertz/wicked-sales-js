@@ -14,7 +14,7 @@ function Header(props) {
     <div className="d-flex bg-dark text-white header-div">
       <i className="fas fa-music fa-lg icon"></i>
       <h3 onClick={backToCatalog} className="header-title">Guitar Shop</h3>
-      <h4 className="header-cart-text">{props.cartItemCount}{item()}</h4>
+      <h4 className="header-cart-text" onClick={goToCart}>{props.cartItemCount}{item()}</h4>
       <i className="fas fa-shopping-cart header-cart-icon" onClick={goToCart}></i>
     </div>
   );
