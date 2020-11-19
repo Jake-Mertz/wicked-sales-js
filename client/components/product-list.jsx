@@ -41,11 +41,7 @@ class ProductList extends React.Component {
       );
     }
     return (
-      <div>
-        <div className="row row-cols-3">
-          <div className="col product-list">{productListRender}</div>
-        </div>
-      </div>
+      <div className="col product-list">{productListRender}</div>
     );
   }
 }
